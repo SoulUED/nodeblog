@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        include ./head/head.jade
+        link(rel="stylesheet", href="/back.css")
+    body
+        canvas(id="blur-bg", class="blur-bg")
+        section(id="container", class="container")
+            div(class="input-result" v-repeat="historyResult")
+                p="{{inputCli}}"
+                div(class="result",v-class="resultError: this.historyResult[$index].isError == true")
+                    p(v-repeat="historyResult[$index].content")="{{$value}}"
+            input(type="text", class="text-input", id="text-input", v-on="focus: addKeyUp, blur: removeKeyUp")
+        script(src="/back.min.js")

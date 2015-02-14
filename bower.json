@@ -1,0 +1,14 @@
+{
+  "name": "blog",
+  "description": "The best project ever.",
+  "version": "0.1.0",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "bootstrap": "*",
+    "react": "*"
+  }
+}

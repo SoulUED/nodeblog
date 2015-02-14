@@ -1,0 +1,17 @@
+@import "compass";
+@import "compass/reset";
+
+html,body{
+  width: 100%;
+  height: 100%;
+}
+body{
+  color: #ffffff;
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+}
+.blur-bg{
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}

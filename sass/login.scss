@@ -1,0 +1,90 @@
+@import "cmmon";
+
+
+.login-form{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 205px;
+  height: 140px;
+  margin: auto;
+  z-index: 1;
+}
+input[type="text"],
+input[type="password"]{
+  border: 0;
+  outline: 0;
+}
+.input-group{
+  position: relative;
+  width: 227px;
+  label{
+    position: absolute;
+    top: 15px;
+    left: 8px;
+    font-size: 24px;
+    color: #ffff00;
+  }
+  input{
+    display: inline-block;
+    margin-top: 10px;
+    width: 183px;
+    height: 30px;
+    color: #ffffff;
+    border: 1px solid #ffff00;
+    @include border-radius(10px);
+    padding-left: 27px;
+    line-height: 32px;
+    @include transition(all 0.5s ease 0s);
+    &:focus{
+      @include box-shadow(0 0 5px #ffff00);
+    }
+  }
+}
+.input-group.input-group-error{
+  label{
+    color: red;
+  }
+  input{
+    border-color: red;
+    &:focus{
+      @include box-shadow(0 0 5px red);
+    }
+  }
+}
+.btn{
+  width: 213px;
+  height: 30px;
+  margin-top: 10px;
+  color: #ffff00;
+  border: 1px solid #ffff00;
+  @include border-radius(10px);
+  background: transparent;
+  outline: 0;
+  @include transition(all 0.5s ease 0s);
+  &:hover{
+    cursor: pointer;
+  }
+}
+.btn-error{
+  color: red;
+  border-color: red;
+}
+.input-common{
+  color: #ffffff;
+  background: transparent;
+}
+::-webkit-input-placeholder {
+  color: #ffffff;
+}
+:-moz-placeholder {
+  color: #ffffff;
+}
+::-moz-placeholder {
+  color: #ffffff;
+}
+:-ms-input-placeholder {
+  color: #ffffff;
+}
