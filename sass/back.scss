@@ -7,11 +7,15 @@
   @include box-sizing(border-box);
   background: rgba(0,0,0,0.7);
   padding: 10px;
+  p{
+    margin-top: 5px;
+  }
 }
 .text-input{
   display: block;
   width: 100%;
-  height: 16px;
+  height: 20px;
+  margin-top: 5px;
   border: 0;
   padding: 0;
   overflow: hidden;
@@ -21,8 +25,36 @@
   &:focus{
     outline: 0;
   }
-  @include transition(all 1s ease 0s);
 }
-.resultError{
+.result{
+  span{
+    padding-right: 5px;
+  }
+}
+.input-result{
+  margin-top: 5px;
+}
+.result-error{
   color: red;
+}
+.result-success{
+  color: green;
+}
+.author,
+.time{
+  color: #ffff00;
+}
+.edit-box{
+  margin-top: 5px;
+}
+.edit{
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  resize: none;
+  outline: 0;
+  background: transparent;
+  color: #ffffff;
+  overflow-y: visible;
 }

@@ -8,7 +8,14 @@ html
         section(id="container", class="container")
             div(class="input-result" v-repeat="historyResult")
                 p="{{inputCli}}"
-                div(class="result",v-class="resultError: this.historyResult[$index].isError == true")
-                    p(v-repeat="historyResult[$index].content")="{{$value}}"
+                div(class="result",v-class="result-error: this.historyResult[$index].isError == true, result-success: this.historyResult[$index].isSuccess == true")
+                    p(v-repeat="historyResult[$index].content")
+                        span="{{title}}"
+                        span(class="author")="{{author}}"
+                        span(class="time")="{{time}}"
+            section(class="edit-box" v-if="isEdit")
+                header(class="edit-title" v-text="editInit")
+                    ="Author: SoulUED, at {{time}}"
+                div(contenteditable="true",class="edit", id="edit", v-if="isEdit", v-on="focus: addEscEvent, blur: removeEscEvent", v-contenteditable="editContent")
             input(type="text", class="text-input", id="text-input", v-on="focus: addKeyUp, blur: removeKeyUp")
         script(src="/back.min.js")

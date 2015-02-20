@@ -21,6 +21,7 @@
     "grunt-browserify": "*"
   },
   "dependencies": {
+    "mongodb": "*",
     "jade": "*",
     "express": "^4.11.2"
   }

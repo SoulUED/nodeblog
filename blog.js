@@ -1,4 +1,4 @@
-var express, app, server, path, bodyParser,cookieParser,urlencodedParser, adminLogin, back;
+var express, app, server, path, bodyParser,cookieParser,urlencodedParser, adminLogin, back, article;
 
 express = require("express");
 bodyParser = require("body-parser");
@@ -8,6 +8,7 @@ app = express();
 
 adminLogin = require("./controller/admin");
 back = require("./controller/back");
+article = require("./controller/article");
 
 app.set("views", './views');
 app.set("view engine", "jade");
@@ -36,5 +37,6 @@ urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.route("/admin").get(adminLogin.admin).post(urlencodedParser, adminLogin.login);
 app.route("/back").get(back.page);
+app.route("/article").post(urlencodedParser, article.newArticle);
 
 server = app.listen(3000);

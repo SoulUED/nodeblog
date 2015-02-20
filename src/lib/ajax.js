@@ -2,8 +2,9 @@
  * Created by margintan on 15/2/13.
  */
 (function () {
-    var Ajax = (function () {
-        var _ajax = new XMLHttpRequest();
+    module.exports = (function () {
+        var _ajax = new XMLHttpRequest(),
+            _callBack = {};
 
         function _get(obj) {
 
@@ -21,20 +22,19 @@
             return true;
         }
 
+        _ajax.addEventListener("readystatechange", function () {
+            if (_ajax.readyState == 4 && _ajax.status == 200) {
+                _callBack.success && _callBack.success(_ajax.responseText);
+            }
+        }, false);
+
         return function (obj) {
-
             obj.method = obj.method.toLocaleUpperCase();
-
             _ajax.open(obj.method, obj.url, isNaN(obj.async));
             obj.data && ((obj.method === "GET" && _get(obj)) || (obj.method === "POST" && _post(obj)));
-
-            _ajax.addEventListener("readystatechange", function () {
-                if (_ajax.readyState == 4 && _ajax.status == 200) {
-                    obj.success(_ajax.responseText);
-                }
-            }, false);
-        }
+            _callBack.success = obj.success;
+            _callBack.error = obj.error;
+        };
     })();
 
-    module.exports = Ajax;
 })();
