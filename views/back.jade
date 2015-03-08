@@ -5,7 +5,7 @@ html
         link(rel="stylesheet", href="/back.css")
     body
         canvas(id="blur-bg", class="blur-bg")
-        section(id="container", class="container")
+        section(id="container", class="container", v-on="click: focusCurrent")
             div(class="input-result" v-repeat="historyResult")
                 p="{{inputCli}}"
                 div(class="result",v-class="result-error: this.historyResult[$index].isError == true, result-success: this.historyResult[$index].isSuccess == true")
@@ -13,9 +13,9 @@ html
                         span="{{title}}"
                         span(class="author")="{{author}}"
                         span(class="time")="{{time}}"
+                        span(class="edit-content")="{{editText}}"
             section(class="edit-box" v-if="isEdit")
                 header(class="edit-title" v-text="editInit")
-                    ="Author: SoulUED, at {{time}}"
                 div(contenteditable="true",class="edit", id="edit", v-if="isEdit", v-on="focus: addEscEvent, blur: removeEscEvent", v-contenteditable="editContent")
             input(type="text", class="text-input", id="text-input", v-on="focus: addKeyUp, blur: removeKeyUp")
         script(src="/back.min.js")

@@ -91,7 +91,7 @@ module.exports = function (grunt) {
         },
         watch: {
             browserify: {
-                files: ["src/*.js"],
+                files: ["src/*.js", "src/cli/*.js"],
                 tasks: ["browserify"]
             },
             css: {
@@ -105,7 +105,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-data-uri');
     grunt.loadNpmTasks('grunt-browserify');
 
     grunt.registerTask('build', ["clean", "dataUri", "copy"]);

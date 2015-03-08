@@ -37,6 +37,6 @@ urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.route("/admin").get(adminLogin.admin).post(urlencodedParser, adminLogin.login);
 app.route("/back").get(back.page);
-app.route("/article").post(urlencodedParser, article.newArticle);
+app.route("/article").post(urlencodedParser, article.newArticle).put(urlencodedParser, article.updateArticle);
 
 server = app.listen(3000);

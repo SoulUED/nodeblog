@@ -73,8 +73,10 @@
     {
 
         var img = imageID;
-        var w = img.naturalWidth;
-        var h = img.naturalHeight;
+        /*var w = img.naturalWidth;
+        var h = img.naturalHeight;*/
+        var w = window.innerWidth;
+        var h = window.innerHeight;
 
         var canvas = document.getElementById( canvasID );
 
@@ -85,7 +87,7 @@
 
         var context = canvas.getContext("2d");
         context.clearRect( 0, 0, w, h );
-        context.drawImage( img, 0, 0 );
+        context.drawImage( img, 0, 0, w, h);
 
         if ( isNaN(radius) || radius < 1 ) return;
 

@@ -20,7 +20,7 @@
   padding: 0;
   overflow: hidden;
   background: transparent;
-  font-size: 14px;
+  font-size: 16px;
   color: #ffffff;
   &:focus{
     outline: 0;
@@ -44,6 +44,11 @@
 .time{
   color: #ffff00;
 }
+.edit{
+  div{
+    margin-top: 5px;
+  }
+}
 .edit-box{
   margin-top: 5px;
 }
@@ -57,4 +62,12 @@
   background: transparent;
   color: #ffffff;
   overflow-y: visible;
+}
+.edit-content{
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  white-space: pre-wrap;
+  line-height: 1.2;
+  color: #ffffff;
 }

@@ -14,7 +14,7 @@
             return true;
         }
 
-        function _post(obj) {
+        function _send(obj) {
 
             _ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             _ajax.send(obj.data);
@@ -31,7 +31,7 @@
         return function (obj) {
             obj.method = obj.method.toLocaleUpperCase();
             _ajax.open(obj.method, obj.url, isNaN(obj.async));
-            obj.data && ((obj.method === "GET" && _get(obj)) || (obj.method === "POST" && _post(obj)));
+            obj.data && ((obj.method === "GET" && _get(obj)) || (_send(obj)));
             _callBack.success = obj.success;
             _callBack.error = obj.error;
         };
